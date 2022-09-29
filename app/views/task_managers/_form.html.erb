@@ -1,0 +1,27 @@
+<%= form_with(model: task_manager) do |form| %>
+  <% if task_manager.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task_manager.errors.count, "error") %> prohibited this task_manager from being saved:</h2>
+
+      <ul>
+        <% task_manager.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :task %>
+    <%= form.text_field :task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_field :detail %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

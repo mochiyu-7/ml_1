@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Task Managers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Detail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_managers.each do |task_manager| %>
+      <tr>
+        <td><%= task_manager.task %></td>
+        <td><%= task_manager.detail %></td>
+        <td><%= link_to 'Show', task_manager %></td>
+        <td><%= link_to 'Edit', edit_task_manager_path(task_manager) %></td>
+        <td><%= link_to 'Destroy', task_manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task Manager', new_task_manager_path %>
